@@ -4,180 +4,135 @@ const client = new Discord.Client();
 const schedule = require('node-schedule');
 
 var quotes = [
-'*"Appear weak when you are strong, and strong when you are weak"*',
-'*"The supreme art of war is to subdue the enemy without fighting"*',
-'*"If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. If you know neither the enemy nor yourself, you will succumb in every battle"*',
-'*"Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt"*',
-'*"Supreme excellence consists of breaking the enemys resistance without fighting"*',
-'*"All warfare is based on deception. Hence, when we are able to attack, we must seem unable; when using our forces, we must appear inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near"*',
-'*"In the midst of chaos, there is also opportunity"*',
-'*"Victorious warriors win first and then go to war, while defeated warriors go to war first and then seek to win"*',
-'*"If your enemy is secure at all points, be prepared for him. If he is in superior strength, evade him. If your opponent is temperamental, seek to irritate him. Pretend to be weak, that he may grow arrogant. If he is taking his ease, give him no rest. If his forces are united, separate them. If sovereign and subject are in accord, put division between them. Attack him where he is unprepared, appear where you are not expected"*',
-'*"The greatest victory is that which requires no battle"*',
-'*"To know your Enemy, you must become your Enemy"*',
-'*"Engage people with what they expect; it is what they are able to discern and confirms their projections. It settles them into predictable patterns of response, occupying their minds while you wait for the extraordinary moment — that which they cannot anticipate"*',
-'*"There is no instance of a nation benefitting from prolonged warfare"*',
-'*"Treat your men as you would your own beloved sons. And they will follow you into the deepest valley"*',
-'*"Even the finest sword plunged into salt water will eventually rust"*',
-'*"Move swift as the Wind and closely-formed as the Wood. Attack like the Fire and be still as the Mountain"*',
-'*"When you surround an army, leave an outlet free. Do not press a desperate foe too hard"*',
-'*"Opportunities multiply as they are seized"*',
-'*"There are not more than five musical notes, yet the combinations of these five give rise to more melodies than can ever be heard"*',
-'*"There are not more than five primary colours, yet in combination they produce more hues than can ever been seen"*',
-'*"There are not more than five cardinal tastes, yet combinations of them yield more flavours than can ever be tasted"*',
-'*"The art of war is of vital importance to the State. It is a matter of life and death, a road either to safety or to ruin. Hence it is a subject of inquiry which can on no account be neglected"*',
-'*"When the enemy is relaxed, make them toil. When full, starve them. When settled, make them move"*',
-'*"Who wishes to fight must first count the cost"*',
-'*"If you wait by the river long enough, the bodies of your enemies will float by"*',
-'*"Know yourself and you will win all battles"*',
-'*"To win one hundred victories in one hundred battles is not the acme of skill. To subdue the enemy without fighting is the acme of skill"*',
-'*"So in war, the way is to avoid what is strong, and strike at what is weak"*',
-'*"Be extremely subtle even to the point of formlessness. Be extremely mysterious even to the point of soundlessness. Thereby you can be the director of the opponents fate"*',
-'*"When strong, avoid them. If of high morale, depress them. Seem humble to fill them with conceit. If at ease, exhaust them. If united, separate them. Attack their weaknesses. Emerge to their surprise"*',
-'*"Build your opponent a golden bridge to retreat across"*',
-'*"What the ancients called a clever fighter is one who not only wins, but excels in winning with ease"*',
-'*"The wise warrior avoids the battle"*',
-'*"The whole secret lies in confusing the enemy, so that he cannot fathom our real intent"*',
-'*"Rouse him, and learn the principle of his activity or inactivity. Force him to reveal himself, so as to find out his vulnerable spots"*',
-'*"One may know how to conquer without being able to do it"*',
-'*"One mark of a great soldier is that he fights on his own terms or fights not at all"*',
-'*"You have to believe in yourself"*',
-'*"If you know the enemy and know yourself, your victory will not stand in doubt; if you know Heaven and know Earth, you may make your victory complete"*',
-'*"If the mind is willing, the flesh could go on and on without many things"*',
-'*"He who is prudent and lies in wait for an enemy who is not, will be victorious"*',
-'*"If your opponent is of choleric temper,  seek to irritate him.  Pretend to be weak, that he may grow arrogant"*',
-'*"Thus the expert in battle moves the enemy, and is not moved by him"*',
-'*"Attack is the secret of defense; defense is the planning of an attack"*',
-'*"Anger may in time change to gladness; vexation may be succeeded by content. But a kingdom that has once been destroyed can never come again into being; nor can the dead ever be brought back to life"*',
-'*"There are roads which must not be followed, armies which must not be attacked, towns which must not be besieged, positions which must not be contested, commands of the sovereign which must not be obeyed"*',
-'*"When one treats people with benevolence, justice, and righteoousness, and reposes confidence in them, the army will be united in mind and all will be happy to serve their leaders"*',
-'*"Great results, can be achieved with small forces"*',
-'*"Attack him where he is unprepared, appear where you are not expected"*',
-'*"Pretend inferiority and encourage his arrogance"*',
-'*"Convince your enemy that he will gain very little by attacking you; this will diminish his enthusiasm"*',
-'*"If quick, I survive. If not quick, I am lost. This is death"*',
-'*"Ponder and deliberate before you make a move"*',
-'*"If soldiers are punished before they have grown attached to you, they will not prove submissive; and, unless submissive, then will be practically useless. If, when the soldiers have become attached to you, punishments are not enforced, they will still be unless"*',
-'*"Ultimate excellence lies not in winning every battle, but in defeating the enemy without ever fighting"*',
-'*"Knowing the enemy enables you to take the offensive, knowing yourself enables you to stand on the defensive"*',
-'*"He will win who knows when to fight and when not to fight"*',
-'*"To secure ourselves against defeat lies in our own hands, but the opportunity of defeating the enemy is provided by the enemy himself"*',
-'*"Bravery without forethought, causes a man to fight blindly and desperately like a mad bull.  Such an opponent, must not be encountered with brute force, but may be lured into an ambush and slain"*',
-'*"If ignorant both of your enemy and yourself, you are certain to be in peril"*',
-'*"The general who advances without coveting fame and retreats without fearing disgrace, whose only thought is to protect his country and do good service for his sovereign, is the jewel of the kingdom"*',
-'*"mystify, mislead, and surprise the enemy"*',
-'*"Wheels of justice gind slow but grind fine"*',
-'*"Move not unless you see an advantage; use not your troops unless there is something to be gained; fight not unless the position is critical"*',
-'*"It is easy to love your friend, but sometimes the hardest lesson to learn is to love your enemy"*',
-'*"He will win who, prepared himself, waits to take the enemy unprepared"*',
-'*"The skillful tactician may be likened to the shuai-jan. Now the shuai-jan is a snake that is found in the Chang mountains. Strike at its head, and you will be attacked by its tail; strike at its tail, and you will be attacked by its head; strike at its middle, and you will be attacked by head and tail both"*',
-'*"Never venture, never win!"*',
-'*"Water shapes its course according to the nature of the ground over which it flows; the soldier works out his victory in relatio to the foe whom he is facing"*',
-'*"If his forces are united, separate them"*',
-'*"Every battle is won before it’s ever fought"*',
-'*"If he sends reinforcements everywhere, he will everywhere be weak"*',
-'*"Begin by seizing something which your opponent holds dear; then he will be amenable to your will"*',
-'*"Rewards for good service should not be deferred a single day"*',
-'*"Be where your enemy is not"*',
-'*"There are five dangerous faults which may affect a general:\\n(1) Recklessness, which leads to destruction;\\n(2) cowardice, which leads to capture;\\n(3) a hasty temper, which can be provoked by insults;\\n(4) a delicacy of honor which is sensitive to shame;\\n(5) over-solicitude for his men, which exposes him to worry and trouble"*',
-'*"Disorder came from order, fear came from courage, weakness came from strength"*',
-'*"But a kingdom that has once been destroyed can never come again into being; nor can the dead ever be brought back to life"*',
-'*"Plan for what it is difficult while it is easy, do what is great while it is small"*',
-'*"If words of command are not clear and distinct, if orders are not thoroughly understood, then the general is to blame. But, if orders are clear and the soldiers nevertheless disobey, then it is the fault of their oficers"*',
-'*"Know your enemy and know yourself and you can fight a hundred battles without disaster"*',
-'*"To fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemys resistance without fighting"*',
-'*"It is only the enlightened ruler and the wise general who will use the highest intelligence of the army for the purposes of spying, and thereby they achieve great results"*',
-'*"who does not know the evils of war cannot appreciate its benefits"*',
-'*"the opportunity of defeating the enemy is provided by the enemy himself"*',
-'*"Hence a commander who advances without any thought of winning personal fame and withdraws in spite of certain punishment, whose only concern is to protect his people and promote the interests of his ruler, is the nations treasure. Because he fusses over his men as if they were infants, they will accompany him into the deepest valleys; because he fusses over his men as if they were his own beloved sons, they will die by his side. If he is generous with them and yet they do not do as he tells them, if he loves them and yet they do not obey his commands, if he is so undisciplined with them that he cannot bring them into proper order, they will be like spoiled children who can be put to no good use at all"*',
-'*"When your army has crossed the border, you should burn your boats and bridges, in order to make it clear to everybody that you have no hankering after home"*',
-'*"Conform to the enemys tactics until a favorable opportunity offers; then come forth and engage in a battle that shall prove decisive"*',
-'*"If you know yourself but not the enemy, for every victory gained you will also suffer a defeat"*',
-'*"In battle, there are not more than two methods of attack--the direct and the indirect; yet these two in combination give rise to an endless series of maneuvers"*',
-'*"Energy may be likened to the bending of a crossbow; decision, to the releasing of a trigger"*',
-'*"Therefore, just as water retains no constant shape, so in warfare there are no constant conditions"*',
-'*"Those skilled at making the enemy move do so by creating a situation to which he must conform; they entice him with something he is certain to take, and with lures of ostensible profit they await him in strength"*',
-'*"Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemys resistance without fighting"*',
-'*"He who advances without seeking fame, Who retreats without escaping blame, He whose one aim is to protect his people and serve his lord, The man is a jewel of the Realm"*',
-'*"Hence that general is skilful in attack whose opponent does not know what to defend; and he is skilful in defense whose opponent does not know what to attack"*',
-'*"If there is disturbance in the camp, the generals authority is weak. "*',
-'*"the worst calamities that befall an army arise from hesitation"*',
-'*"Foreknowledge cannot be gotten from ghosts and spirits, cannot be had by analogy, cannot be found out by calculation. It must be obtained from people, people who know the conditions of the enemy"*',
-'*"Know thy self, know thy enemy. A thousand battles, a thousand victories"*',
-'*"if you fight with all your might,  there is a chance of life; where as death is certain if you cling to your corner"*',
-'*"do many calculations lead to victory, and few calculations to defeat"*',
-'*"Success in warfare is gained by carefully accommodating ourselves to the enemys purpose"*',
-'*"Do not swallow bait offered by the enemy. Do not interfere with an army that is returning home"*',
-'*"Conceal your dispositions, and your condition will remain secret, which leads to victory;  show your dispositions, and your condition will become patent, which leads to defeat"*',
-'*"The end and aim of spying in all its five varieties is knowledge of the enemy; and this knowledge can only be derived, in the first instance, from the converted spy. Hence it is essential that the converted spy be treated with the utmost liberality"*',
-'*"If those who are sent to draw water begin by drinking themselves, the army is suffering from thirst. [One may know the condition of a whole army from the behavior of a single man"*',
-'*"Deep knowledge is to be aware of disturbance before disturbance, to be aware of danger before danger, to be aware of destruction before destruction, to be aware of calamity before calamity. Strong action is training the body without being burdened by the body, exercising the mind without being used by the mind, working in the world without being affected by the world, carrying out tasks without being obstructed by tasks"*',
-'*"You can ensure the safety of your defense if you only hold positions that cannot be attacked"*',
-'*"Whether in an advantageous position or a disadvantageous one, the opposite state should be always present to your mind"*',
-'*"When the outlook is bright, bring it before their eyes; but tell them nothing when the situation is gloomy"*',
-'*"The Art of War is self-explanatory"*',
-'*"The spot where we intend to fight must not be made known; for then the enemy will have to prepare against a possible attack at several different points;"*',
-'*"Invincibility lies in the defence; the possibility of victory in the attack"*',
-'*"By reinforcing every part, he weakens every part"*',
-'*"We cannot enter into alliances until we are acquainted with the designs of our neighbors"*',
-'*"The control of a large force is the same principle as the control of a few men: it is merely a question of dividing up their numbers"*',
-'*"It is the unemotional, reserved, calm, detached warrior who wins, not the hothead seeking vengeance and not the ambitious seeker of fortune"*',
-'*"There are not more than five primary colors  (blue, yellow,  red, white, and black), yet in combination they produce more hues than can ever been seen"*',
-'*"In war, then, let your great object be victory, not lengthy campaigns"*',
-'*"Whoever is first in the field and awaits the coming of the enemy, will be fresh for the fight; whoever is second in the field and has to hasten to battle will arrive exhausted"*',
-'*"It is the rule in war, if our forces are ten to the enemys one, to surround him; if five to one, to attack him; if twice as numerous, to divide our army into two"*',
-'*"Order or disorder depends on organisation; courage or cowardice on circumstances; strength or weakness on dispositions"*',
-'*"The good fighters of old first put themselves beyond the possibility of defeat, and then waited for an opportunity of defeating the enemy"*',
-'*"No ruler should put troops into the field merely to gratify his own spleen; no general should fight a battle simply out of pique. If it is to your advantage, make a forward move; if not, stay where you are. Anger may in time change to gladness; vexation may be succeeded by content. But a kingdom that has once been destroyed can never come again into being; nor can the dead ever be brought back to life"*',
-'*"Confront them with annihilation, and they will then survive; plunge them into a deadly situation, and they will then live. When people fall into danger, they are then able to strive for victory"*',
-'*"The general who does not advance to seek glory, or does not withdraw to avoid punishment, but cares for only the peoples security and promotes the peoples interests, is the nations treasure"*',
-'*"When the common soldiers are too strong and their officers too weak, the result is INSUBORDINATION"*',
-'*"To lift an autumn hair is no sign of great strength; to see the sun and moon is no sign of sharp sight; to hear the noise of thunder is no sign of a quick ear"*',
-'*"O divine art of subtlety and secrecy! Through you we learn to be invisible, through you inaudible, and hence we can hold the enemys fate in our hands"*',
-'*"Unhappy is the fate of one who tries to win his battles and succeed in his attacks without cultivating the spirit of enterprise;  for the result is waste of time and   general stagnation"*',
-'*"When the general is weak and without authority; when his orders are not clear and distinct; when there are no fixed duties assigned to officers and men, and the ranks are formed in a slovenly haphazard manner, the result is utter disorganization"*',
-'*"It is only one who is thoroughly acquainted with the evils of war that can thoroughly understand the profitable way of carrying it on"*',
-'*"For the wise man delights in establishing his merit, the brave man likes to show his courage in action, the covetous man is quick at seizing advantages, and the stupid man has no fear of death"*',
-'*"When the officers are too strong and the common soldiers too weak, the result is COLLAPSE"*',
-'*"It is best to keep one’s own state intact; to crush the enemy’s state is only second best"*',
-'*"Like the sun and moon, they end but to begin anew; like the four seasons, they pass away to return once more"*',
-'*"No ruler should put troops into the field merely to gratify his own spleen; no general should fight a battle simply out of pique"*',
-'*"All men can see the tactics whereby I conquer, but what none can see is the strategy out of which victory is evolved"*',
-'*"The principle on which to manage an army is to set up one standard of courage which all must reach"*',
-'*"Danger has a bracing effect"*',
-'*"One hundred victories in one hundred battles is not the most skillful, subduing the others military without battle is the most skillful"*',
-'*"Standing on the defensive indicates insufficient strength; attacking, a superabundance of strength"*',
-'*"Supreme importance in war is to attack the enemy’s strategy"*',
-'*"Hold out baits to entice the enemy. Feign disorder, and crush him"*',
-'*"He who relies solely on warlike measures shall be exterminated; he who relies solely on peaceful measures shall perish"*',
-'*"If you are near the enemy, make him believe you are far from him. If you are far from the enemy, make him believe you are now"*',
-'*"In the practical art of war, the best thing of all is to take the enemys country whole and intact; to shatter and destroy it is not so good. So, too, it is better to recapture an army entire than to destroy it, to capture a regiment, a detachment or a company entire than to destroy them"*',
-'*"Know the enemy and know yourself; in a hundred battles you will never be in peril. When you are ignorant of the enemy, but know yourself, your chances of winning or losing are equal. If ignorant both of your enemy and yourself, you are certain in every battle to be in peril"*',
-'*"There are five dangerous faults which may affect a general: (1) Recklessness, which leads to destruction; (2) cowardice, which leads to capture; (3) a hasty temper, which can be provoked by insults; (4) a delicacy of honor which is sensitive to shame; (5) over-solicitude for his men, which exposes him to worry and trouble"*',
-'*"Through you we learn to be invisible, through you inaudible; and hence we can hold the enemys fate in our hands"*',
-'*"If I determine the enemys disposition of forces while I have no perceptible form, I can concentrate my forces while the enemy is fragmented. The pinnacle of military deployment approaches the formless: if it is formless, then even the deepest spy cannot discern it nor the wise make plans against it"*',
-'*"If we wish to wrest an advantage from the enemy, we must not fix our minds on that alone, but allow for the possibility of the enemy also doing some harm to us, and let this enter as a factor into our calculations"*',
-'*"So long as victory can be attained,  stupid haste is preferable to clever dilatoriness"*',
-'*"Regard your soldiers as your children, and they will follow you into the deepest valleys; look on them as your own beloved sons"*',
-'*"If you do not take opportunity   to   advance and reward   the   deserving,   your subordinates will not carry out your commands, and disaster will ensue"*',
-'*"The art of war, then, is governed by five constant factors, to be taken into account in ones deliberations, when seeking to determine the conditions obtaining in the field"*',
-'*"You can be sure of succeeding in your attacks if you only attack places which are undefended.You can ensure the safety of your defense if you only hold positions that cannot be attacked"*',
-'*"Thus it is that in war the victorious strategist only seeks battle after the victory is won, whereas he who is destined to defeat first fights and afterwards looks for victory"*',
-'*"We are not fit to lead an army on the march unless we are familiar with the face of the country -- its mountains and forests, its pitfalls and precipices, its marshes and swamps"*',
-'*"When we are near, we must make the enemy believe we are far away."*',
-'*"The art of war is of vital importance to the State"*',
-'*"The skillful employer of men will employ the wise man, the brave man, the covetous man, and the stupid man. For the wise man delights in establishing his merit, the brave man likes to show his courage in action, the covetous man is quick at seizing advantages, and the stupid man has no fear of death"*',
-'*"The good fighters of old first put themselves beyond the possibility of defeat, and then waited for an opportunity of defeating the enemy"*',
-'*"Therefore the skillful leader subdues the enemys troops without any fighting; he captures their cities without laying siege to them; he overthrows their kingdom without lengthy operations in the field"*',
-'*"Pretend to be weak, that he may grow arrogant"*',
-'*"He will win who knows how to handle both superior and inferior forces"*',
-'*"If you know the enemy and know yourself, you need not fear the result of a hundred battles"*',
-'*"first lay plans which will ensure victory, and then lead your army to battle;  if you will not begin with stratagem but rely on brute strength alone, victory will no longer be assured"*',
-'*"In making tactical dispositions, the highest pitch you can attain is to conceal them"*',
-'*"To begin by bluster, but afterwards to take fright at the enemys numbers, shows a supreme lack of intelligence"*',
-'*"These military devices, leading to victory, must not be divulged beforehand"*',
-'*"Regard your soldiers as your children, and they will follow you into the deepest valleys; look upon them as your own beloved sons, and they will stand by you even unto death"*',
-'*"He wins his battles by making no mistakes. Making no mistakes is what establishes the certainty of victory, for it means conquering an enemy that is already defeated"*'
+"**S1-E01** – *Great leaders inspire greatness in others.*"
+"**S1-E02** – *Belief is not a matter of choice, but of conviction.*"
+"**S1-E03** – *Easy is the path to wisdom for those not blinded by ego.*"
+"**S1-E04** – *A plan is only as good as those who see it through.*"
+"**S1-E05** – *The best confidence builder is experience.*"
+"**S1-E06** – *Trust in your friends, and they’ll have reason to trust in you.*"
+"**S1-E07** – *You hold onto friends by keeping your heart a little softer than your head.*"
+"**S1-E08** – *Heroes are made by the times.*"
+"**S1-E09** – *Ignore your instincts at your peril.*"
+"**S1-E10** – *Most powerful is he who controls his own power.*"
+"**S1-E11** – *The winding path to peace is always a worthy one, regardless of how many turns it takes.*"
+"**S1-E12** – *Fail with honor rather than succeed by fraud.*"
+"**S1-E13** – *Greed and fear of loss are the roots that lead to the tree of evil.*"
+"**S1-E14** – *When surrounded by war, one must eventually choose a side.*"
+"**S1-E15** – *Arrogance diminishes wisdom.*"
+"**S1-E16** – *Truth enlightens the mind, but won’t always bring happiness to your heart.*"
+"**S1-E17** – *Fear is a disease; hope is its only cure.*"
+"**S1-E18** – *A single chance is a galaxy of hope.*"
+"**S1-E19** – *It is a rough road that leads to the heights of greatness.*"
+"**S1-E20** – *The costs of war can never be truly accounted for.*"
+"**S1-E21** – *Compromise is a virtue to be cultivated, not a weakness to be despised.*"
+"**S1-E22** – *A secret shared is a trust formed.*"
+"**S2-E01** – *A lesson learned is a lesson earned.*"
+"**S2-E02** – *Overconfidence is the most dangerous form of carelessness.*"
+"**S2-E03** – *The first step to correcting a mistake is patience.*"
+"**S2-E04** – *A true heart should never be doubted.*"
+"**S2-E05** – *Believe in yourself or no one else will.*"
+"**S2-E06** – *No gift is more precious than trust.*"
+"**S2-E07** – *Sometimes, accepting help is harder than offering it.*"
+"**S2-E08** – *Attachment is not compassion.*"
+"**S2-E09** – *For everything you gain, you lose something else.*"
+"**S2-E10** – *It is the quest for honor that makes one honorable.*"
+"**S2-E11** – *Easy isn’t always simple.*"
+"**S2-E12** – *If you ignore the past, you jeopardize the future.*"
+"**S2-E13** – *Fear not for the future, weep not for the past.*"
+"**S2-E14** – *In war, truth is the first casualty.*"
+"**S2-E15** – *Searching for the truth is easy. Accepting the truth is hard.*"
+"**S2-E16** – *A wise leader knows when to follow.*"
+"**S2-E17** – *Courage makes heroes, but trust builds friendships.*"
+"**S2-E18** – *Choose what is right, not what is easy.*"
+"**S2-E19** – *The most dangerous beast is the beast within.*"
+"**S2-E20** – *Who my father was matters less than my memory of him.*"
+"**S2-E21** – *Adversity is a friendship’s truest test.*"
+"**S2-E22** – *Revenge is a confession of pain.*"
+"**S3-E01** – *Brothers in arms are brothers for life.*"
+"**S3-E02** – *Fighting a war tests a soldier’s skills, defending his home tests a soldier’s heart.*"
+"**S3-E03** – *Where there’s a will, there’s a way.*"
+"**S3-E04** – *A child stolen is a hope lost.*"
+"**S3-E05** – *The challenge of hope is to overcome corruption.*"
+"**S3-E06** – *Those who enforce the law must obey the law.*"
+"**S3-E07** – *The future has many paths** – *choose wisely.*"
+"**S3-E08** – *A failure in planning is a plan for failure.*"
+"**S3-E09** – *Love comes in all shapes and sizes.*"
+"**S3-E10** – *Fear is a great motivator.*"
+"**S3-E11** – *Truth can strike down the spectre of fear.*"
+"**S3-E12** – *The swiftest path to destruction is through vengeance.*"
+"**S3-E13** – *Evil is not born, it is taught.*"
+"**S3-E14** – *The path to evil may bring great power, but not loyalty.*"
+"**S3-E15** – *Balance is found in the one who faces his guilt.*"
+"**S3-E16** – *He who surrenders hope, surrenders life.*"
+"**S3-E17** – *He who seeks to control fate shall never find peace.*"
+"**S3-E18** – *Adaptation is the key to survival.*"
+"**S3-E19** – *Anything that can go wrong will.*"
+"**S3-E20** – *Without honor, victory is hollow.*"
+"**S3-E21** – *Without humility, courage is a dangerous game.*"
+"**S3-E22** – *A great student is what the teacher hopes to be.*"
+"**S4-E01** – *When destiny calls, the chosen have no choice.*"
+"**S4-E02** – *Only through fire is a strong sword forged.*"
+"**S4-E03** – *Crowns are inherited, kingdoms are earned.*"
+"**S4-E04** – *Who a person truly is cannot be seen with the eye.*"
+"**S4-E05** – *Understanding is honoring the truth beneath the surface.*"
+"**S4-E06** – *Who’s the more foolish, the fool or the fool who follows him?"
+"**S4-E07** – *The first step towards loyalty is trust.*"
+"**S4-E08** – *The path of ignorance is guided by fear.*"
+"**S4-E09** – *The wise man leads, the strong man follows.*"
+"**S4-E10** – *Our actions define our legacy.*"
+"**S4-E11** – *Where we are going always reflects where we came from.*"
+"**S4-E12** – *Those who enslave others, inevitably become slaves themselves.*"
+"**S4-E13** – *Great hope can come from small sacrifices.*"
+"**S4-E14** – *Friendship shows us who we really are.*"
+"**S4-E15** – *All warfare is based on deception.*"
+"**S4-E16** – *Keep your friends close, but keep your enemies closer.*"
+"**S4-E17** – *The strong survive, the noble overcome.*"
+"**S4-E18** – *Trust is the greatest of gifts, but it must be earned.*"
+"**S4-E19** – *One must let go of the past to hold on to the future.*"
+"**S4-E20** – *Who we are never changes, who we think we are does.*"
+"**S4-E21** – *A fallen enemy may rise again, but the reconciled one is truly vanquished.*"
+"**S4-E22** – *The enemy of my enemy is my friend.*"
+"**S5-E01** – *Strength of character can defeat strength in numbers.*"
+"**S5-E02** – *Fear is a malleable weapon.*"
+"**S5-E03** – *To seek something is to believe in its possibility.*"
+"**S5-E04** – *Struggles often begin and end with the truth.*"
+"**S5-E05** – *Disobedience is a demand for change.*"
+"**S5-E06** – *He who faces himself, finds himself.*"
+"**S5-E07** – *The young are often underestimated.*"
+"**S5-E08** – *When we rescue others, we rescue ourselves.*"
+"**S5-E09** – *Choose your enemies wisely, as they may be your last hope.*"
+"**S5-E10** – *Humility is the only defense against humiliation.*"
+"**S5-E11** – *When all seems hopeless, a true hero gives hope.*"
+"**S5-E12** – *A soldier’s most powerful weapon is courage.*"
+"**S5-E13** – *You must trust in others or success is impossible.*"
+"**S5-E14** – *One vision can have many interpretations.*"
+"**S5-E15** – *Alliances can stall true intentions.*"
+"**S5-E16** – *Morality separates heroes from villains.*"
+"**S5-E17** – *Sometimes even the smallest doubt can shake the greatest belief.*"
+"**S5-E18** – *Courage begins by trusting oneself.*"
+"**S5-E19** – *Never become desperate enough to trust the untrustworthy.*"
+"**S5-E20** – *Never give up hope, no matter how dark things seem.*"
+"**S6-E01** – *The truth about yourself is always the hardest to accept.*"
+"**S6-E02** – *The wise benefit from a second opinion.*"
+"**S6-E03** – *When in doubt, go to the source.*"
+"**S6-E04** – *The popular belief isn’t always the correct one.*"
+"**S6-E05** – *To love, is to trust. To trust is to believe.*"
+"**S6-E06** – *Jealousy is the path to chaos.*"
+"**S6-E07** – *Deceit is the weapon of greed.*"
+"**S6-E08** – *Without darkness there cannot be light.*"
+"**S6-E09** – *Wisdom is born in fools as well as wise men.*"
+"**S6-E10** – *What is lost is often found.*"
+"**S6-E11** – *Madness can sometimes be the path to truth.*"
+"**S6-E12** – *Death is just the beginning.*"
+"**S6-E13** – *Facing all that you fear will free you from yourself.*"
+"**S7-E01** – *Embrace others for their differences, for that makes you whole.*"
+"**S7-E02** – *The search for truth begins with belief.*"
+"**S7-E03** – *Survival is one step on the path to living.*"
+"**S7-E04** – *Trust placed in another is trust earned.*"
+"**S7-E05** – *If there is no path before you, create your own.*"
+"**S7-E06** – *Mistakes are valuable lessons often learned too late.*"
+"**S7-E07** – *Who you were does not have to define who you are.*"
+"**S7-E08** – *You can change who you are, but you cannot run from yourself.*"
 ];
 
 var count = Math.floor(Math.random() * 174);
@@ -186,7 +141,7 @@ client.on("ready", () => {
 	console.log("Ready for some lit quotes?");
 	console.log("08:00:00 Every day!");
 	console.log("Be there!");
-	client.user.setActivity('great quotes', { type: 'WATCHING' })
+	client.user.setActivity('clone wars episodes', { type: 'WATCHING' })
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 });
@@ -201,7 +156,7 @@ client.on('message', (message) => {
 */
 
 //45 45 17 * * *
-const job = schedule.scheduleJob('00 00 07 * * *', function(){
+const job = schedule.scheduleJob('00 00 08 * * *', function(){
 	count = Math.floor(Math.random() * 174);
 	client.channels.cache.get('910244563703193621').send(quotes[count] + "  -  **Sun Tzu, The Art Of War**")
 	.then(message => console.log(`Sent quote`))
