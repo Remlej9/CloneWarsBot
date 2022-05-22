@@ -1,0 +1,26 @@
+{
+  "name": "CloneWarsBot",
+  "version": "0.1.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node ./src/bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Remlej9/CloneWarsBot.git"
+  },
+  "keywords": [],
+  "author": "Remlej9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Remlej9/CloneWarsBot/issues"
+  },
+  "homepage": "https://github.com/Remlej9/CloneWarsBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "node-schedule": "^2.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
