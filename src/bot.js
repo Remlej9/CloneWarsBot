@@ -142,7 +142,7 @@ client.on("ready", () => {
 	console.log("08:00:00 Every day!");
 	console.log("Be there!");
 	client.user.setActivity('clone wars episodes', { type: 'WATCHING' })
-	client.channels.cache.get('910244563703193621').send("<@&783963947597299742> I have replaced Sun Tzu in favour of your request. I will send out Star Wars the Clone Wars quotes everyday at 08:00:00! Be there!")
+	client.channels.cache.get('910244563703193621').send("I'll be nice and send my first quote right now :) Here is your inspirational quote for the night: " + quotes[count])
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 });
