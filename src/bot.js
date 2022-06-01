@@ -142,8 +142,6 @@ client.on("ready", () => {
 	console.log("08:00:00 Every day!");
 	console.log("Be there!");
 	client.user.setActivity('clone wars episodes', { type: 'WATCHING' })
-	client.channels.cache.get('910244563703193621').send("I'll be nice and send my first quote right now :) Here is your inspirational quote for the night:")
-	client.channels.cache.get('910244563703193621').send('"**S1-E11** – *The winding path to peace is always a worthy one, regardless of how many turns it takes.*"')
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 });
