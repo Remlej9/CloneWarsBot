@@ -155,7 +155,6 @@ client.on('message', (message) => {
 });
 */
 
-//45 45 17 * * *
 const job = schedule.scheduleJob('00 00 08 * * *', function(){
 	count = Math.floor(Math.random() * 174);
 	client.channels.cache.get('910244563703193621').send(quotes[count] + "  -  **Sun Tzu, The Art Of War**")
