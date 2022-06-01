@@ -75,7 +75,7 @@ var quotes = [
 '"**S4-E03** – *Crowns are inherited, kingdoms are earned.*"',
 '"**S4-E04** – *Who a person truly is cannot be seen with the eye.*"',
 '"**S4-E05** – *Understanding is honoring the truth beneath the surface.*"',
-'"**S4-E06** – *Who’s the more foolish, the fool or the fool who follows him?"
+'"**S4-E06** – *Who’s the more foolish, the fool or the fool who follows him?*"',
 '"**S4-E07** – *The first step towards loyalty is trust.*"',
 '"**S4-E08** – *The path of ignorance is guided by fear.*"',
 '"**S4-E09** – *The wise man leads, the strong man follows.*"',
@@ -132,10 +132,10 @@ var quotes = [
 '"**S7-E05** – *If there is no path before you, create your own.*"',
 '"**S7-E06** – *Mistakes are valuable lessons often learned too late.*"',
 '"**S7-E07** – *Who you were does not have to define who you are.*"',
-'"**S7-E08** – *You can change who you are, but you cannot run from yourself.*"
+'"**S7-E08** – *You can change who you are, but you cannot run from yourself.*"'
 ];
 
-var count = Math.floor(Math.random() * 174);
+var count = Math.floor(Math.random() * 130);
 
 client.on("ready", () => {
 	console.log("Ready for some lit quotes?");
