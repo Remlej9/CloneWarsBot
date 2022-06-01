@@ -142,7 +142,8 @@ client.on("ready", () => {
 	console.log("08:00:00 Every day!");
 	console.log("Be there!");
 	client.user.setActivity('clone wars episodes', { type: 'WATCHING' })
-	client.channels.cache.get('910244563703193621').send("I'll be nice and send my first quote right now :) Here is your inspirational quote for the night: " + quotes[count])
+	client.channels.cache.get('910244563703193621').send("I'll be nice and send my first quote right now :) Here is your inspirational quote for the night:")
+	client.channels.cache.get('910244563703193621').send('"**S1-E11** – *The winding path to peace is always a worthy one, regardless of how many turns it takes.*"')
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 });
@@ -157,7 +158,7 @@ client.on('message', (message) => {
 */
 
 const job = schedule.scheduleJob('00 00 08 * * *', function(){
-	count = Math.floor(Math.random() * 174);
+	count = Math.floor(Math.random() * 130);
 	client.channels.cache.get('910244563703193621').send(quotes[count])
 	.then(message => console.log(`Sent quote`))
 	.catch(console.error);
