@@ -142,6 +142,7 @@ client.on("ready", () => {
 	console.log("08:00:00 Every day!");
 	console.log("Be there!");
 	client.user.setActivity('clone wars episodes', { type: 'WATCHING' })
+	client.channels.cache.get('910244563703193621').send('<@&${783963947597299742}> I have replaced Sun Tzu in favour of your request. I will send out Star Wars the Clone Wars quotes everyday at 08:00:00! Be there!')
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 });
@@ -157,7 +158,7 @@ client.on('message', (message) => {
 
 const job = schedule.scheduleJob('00 00 08 * * *', function(){
 	count = Math.floor(Math.random() * 174);
-	client.channels.cache.get('910244563703193621').send(quotes[count] + "  -  **Sun Tzu, The Art Of War**")
+	client.channels.cache.get('910244563703193621').send(quotes[count])
 	.then(message => console.log(`Sent quote`))
 	.catch(console.error);
 });
