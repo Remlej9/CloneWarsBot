@@ -267,7 +267,7 @@ var quotes = [
 '**S7-E08** – "*You can change who you are, but you cannot run from yourself.*"'
 ];*/
 
-var count = Math.floor(Math.random() * 130);
+var count = Math.floor(Math.random() * 129);
 
 client.on("ready", () => {
 	console.log("Ready for some lit quotes?");
@@ -275,7 +275,8 @@ client.on("ready", () => {
 	console.log("Be there!");
 	client.user.setActivity('clone wars episodes', { type: 'WATCHING' })
 	//.channels.cache.get('910244563703193621').send("<@&783963947597299742> I have replaced Sun Tzu in favour of your request. I will send out Star Wars the Clone Wars quotes everyday at 08:00:00! Be there!")
-	//client.channels.cache.get('910244563703193621').send(quotes[count])
+	client.channels.cache.get('910244563703193621').send("Sorry :( I had some technical difficulties... Here you go:")
+	client.channels.cache.get('910244563703193621').send(quotes[count])
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
   .catch(console.error);
 });
@@ -290,7 +291,7 @@ client.on('message', (message) => {
 */
 
 const job = schedule.scheduleJob('00 00 08 * * *', function(){
-	count = Math.floor(Math.random() * 130);
+	count = Math.floor(Math.random() * 129);
 	client.channels.cache.get('910244563703193621').send(quotes[count])
 	.then(message => console.log(`Sent quote`))
 	.catch(console.error);
