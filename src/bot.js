@@ -290,6 +290,13 @@ client.on('message', (message) => {
 });
 */
 
+const job = schedule.scheduleJob('00 00 07 20 * *', function(){
+	count = Math.floor(Math.random() * 129);
+	client.channels.cache.get('910244563703193621').send(quotes[count])
+	.then(message => console.log(`Sent quote`))
+	.catch(console.error);
+});
+
 const job = schedule.scheduleJob('00 00 08 * * *', function(){
 	count = Math.floor(Math.random() * 129);
 	client.channels.cache.get('910244563703193621').send(quotes[count])
